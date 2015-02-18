@@ -10,7 +10,7 @@ public class Singleton {
 		
 	}
 	
-	//2、静态变量;唯一获取实例的入口，首次创建了单例
+	//2、静态变量;唯一获取实例的入口，首次(类加载的时候加载:饿汉模式)创建了单例
 	private static Singleton instance = new Singleton();
 	
 	//3、为了保证变量安全用get方法作为入口
