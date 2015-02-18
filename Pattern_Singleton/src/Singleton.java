@@ -11,6 +11,10 @@ public class Singleton {
 	}
 	
 	//2、静态变量;唯一获取实例的入口，首次创建了单例
-	public static Singleton instance = new Singleton();
+	private static Singleton instance = new Singleton();
 	
+	//3、为了保证变量安全用get方法作为入口
+	public static Singleton getInstance(){
+		return instance;
+	}
 }
