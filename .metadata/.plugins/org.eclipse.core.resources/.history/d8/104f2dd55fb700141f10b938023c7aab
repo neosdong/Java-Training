@@ -1,0 +1,10 @@
+package com.neosdong;
+
+/**
+ * 工厂：发廊
+ * @author leon
+ *
+ */
+public class HairCutFactory {
+
+}

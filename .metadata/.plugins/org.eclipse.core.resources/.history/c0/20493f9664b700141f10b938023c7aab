@@ -1,0 +1,20 @@
+package com.neosdong;
+
+public class TestFactory {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		HairCutSkill hairCutSkill01 = HairCutFactory.getHairCutSkill("left1");
+		hairCutSkill01.doHairCut();
+		
+		HairCutSkill hairCutSkill02 = HairCutFactory.getHairCutSkill("right");
+		hairCutSkill02.doHairCut();
+		
+		HairCutSkill hairCutSkill03 = HairCutFactory.getHairCutByClass(
+				"com.neosdong.LeftHair");
+		hairCutSkill03.doHairCut();
+	}
+
+}

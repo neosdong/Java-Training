@@ -1,0 +1,46 @@
+package com.neosdong;
+
+/**
+ * 工厂：发廊
+ * @author leon
+ *
+ */
+public class HairCutFactory {
+	public static HairCutSkill getHairCutSkill(String hairCutType){
+		if (hairCutType=="left") {
+			return new LeftHair();
+		}
+		else if (hairCutType=="right") {
+			return new RightHair();
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public static HairCutSkill getHairCutSkillByClass(String className){
+		HairCutSkill hairCutSkill = null;
+		try {
+			hairCutSkill = (HairCutSkill) Class.forName(className).newInstance();
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return hairCutSkill;
+	}
+	
+	public static HairCutSkill getHairCutSkillByType(String type){
+		HairCutSkill hairCutSkill = null;
+		PropertiesReader propertiesReader = new PropertiesReader();
+		try {
+			hairCutSkill = (HairCutSkill)Class.
+					forName(propertiesReader.getProperties().get("left")).newInstance();
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return hairCutSkill;
+	}
+}

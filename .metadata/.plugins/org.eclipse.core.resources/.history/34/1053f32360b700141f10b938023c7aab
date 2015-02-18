@@ -1,0 +1,5 @@
+package com.neosdong;
+
+public interface HairCutSkill {
+
+}

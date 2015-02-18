@@ -1,0 +1,8 @@
+package com.neosdong;
+
+public class LeftHair implements HairCutSkill{
+	@Override
+	public void doHairCut() {
+		System.out.println("左偏分");
+	}
+}
