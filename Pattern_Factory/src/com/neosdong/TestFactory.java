@@ -11,6 +11,10 @@ public class TestFactory {
 		
 		HairCutSkill hairCutSkill02 = HairCutFactory.getHairCutSkill("right");
 		hairCutSkill02.doHairCut();
+		
+		HairCutSkill hairCutSkill03 = HairCutFactory.getHairCutByClass(
+				"com.neosdong.LeftHair");
+		hairCutSkill03.doHairCut();
 	}
 
 }

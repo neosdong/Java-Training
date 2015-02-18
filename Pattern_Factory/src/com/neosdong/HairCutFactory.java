@@ -17,4 +17,16 @@ public class HairCutFactory {
 			return null;
 		}
 	}
+	
+	public static HairCutSkill getHairCutByClass(String className){
+		HairCutSkill hairCutSkill = null;
+		try {
+			hairCutSkill = (HairCutSkill) Class.forName(className).newInstance();
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return hairCutSkill;
+	}
 }
