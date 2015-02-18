@@ -18,10 +18,24 @@ public class HairCutFactory {
 		}
 	}
 	
-	public static HairCutSkill getHairCutByClass(String className){
+	public static HairCutSkill getHairCutSkillByClass(String className){
 		HairCutSkill hairCutSkill = null;
 		try {
 			hairCutSkill = (HairCutSkill) Class.forName(className).newInstance();
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return hairCutSkill;
+	}
+	
+	public static HairCutSkill getHairCutSkillByType(String type){
+		HairCutSkill hairCutSkill = null;
+		PropertiesReader propertiesReader = new PropertiesReader();
+		try {
+			hairCutSkill = (HairCutSkill)Class.
+					forName(propertiesReader.getProperties().get(type)).newInstance();
 		} catch (InstantiationException | IllegalAccessException
 				| ClassNotFoundException e) {
 			// TODO Auto-generated catch block
