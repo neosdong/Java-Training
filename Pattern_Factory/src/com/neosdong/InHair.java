@@ -8,6 +8,6 @@ public class InHair implements HairCutSkill{
 	@Override
 	public void doHairCut() {
 		// TODO Auto-generated method stub
-		System.out.print("In Hair cut");
+		System.out.println("In Hair cut");
 	}
 }

@@ -1,5 +1,8 @@
 package com.neosdong;
 
+import com.neosdong.ab_factory.HNYFactory;
+import com.neosdong.ab_factory.PersonFactory;
+
 public class TestFactory {
 
 	/**
@@ -20,7 +23,8 @@ public class TestFactory {
 		HairCutSkill hairCutSkill04 = HairCutFactory.getHairCutSkillByType("in");
 		hairCutSkill04.doHairCut();
 		
-		
+		HNYFactory hnyFactory = new HNYFactory();
+		hnyFactory.getBoy().drawMan();
 	}
 
 }
