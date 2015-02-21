@@ -1,0 +1,27 @@
+package com.neosdong;
+
+
+public class SellTicketRunnable implements Runnable{
+
+	private final Object lockObj = new Object();
+	
+	@Override
+	public void run() {
+		synchronized (lockObj) {
+			int ticketCount = 4;
+        	while(ticketCount>0){
+        		try {
+					lockObj.wait();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        	}
+        		ticketCount--;
+        		System.out.println(Thread.currentThread().getName()
+					+" sell one tciket left "+ ticketCount );
+        	lockObj.notifyAll();
+		}
+	}
+
+}

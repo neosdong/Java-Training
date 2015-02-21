@@ -3,6 +3,7 @@ package com.neosdong;
 
 
 public class SellTicketThread extends Thread{
+
 	private int ticketCount = 5;
 	
 	@Override

@@ -1,0 +1,20 @@
+package com.neosdong;
+
+public class MainClass {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SellTicketThreadB sellTicketThread = new SellTicketThreadB();
+		SellTicketThreadB sellTicketThread2 = new SellTicketThreadB();
+		SellTicketThreadB sellTicketThread3 = new SellTicketThreadB();
+		
+		sellTicketThread.start();
+		sellTicketThread2.start();
+		sellTicketThread3.start();
+				
+	}
+
+}

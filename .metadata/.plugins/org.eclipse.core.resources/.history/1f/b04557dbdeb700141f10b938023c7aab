@@ -1,0 +1,11 @@
+package com.neosdong.ab_factory;
+
+public class HNYGirl implements Girl{
+
+	@Override
+	public void drawWoman() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

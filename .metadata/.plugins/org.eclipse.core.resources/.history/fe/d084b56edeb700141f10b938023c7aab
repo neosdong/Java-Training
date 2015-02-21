@@ -1,0 +1,10 @@
+package com.neosdong.ab_factory;
+
+public class MCBoy implements Boy{
+
+	public void drawMan() {
+		// TODO Auto-generated method stub
+		System.out.println("圣诞系列男孩");
+	}
+
+}

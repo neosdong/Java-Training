@@ -1,0 +1,7 @@
+package com.neosdong.ab_factory;
+
+public interface PersonFactory {
+	void getBoy();
+	void getGirl();
+	
+}

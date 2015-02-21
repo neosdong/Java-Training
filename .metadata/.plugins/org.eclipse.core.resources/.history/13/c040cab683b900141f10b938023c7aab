@@ -1,0 +1,11 @@
+package com.neosdong;
+
+public class SellTicketThread2 implements Runnable{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

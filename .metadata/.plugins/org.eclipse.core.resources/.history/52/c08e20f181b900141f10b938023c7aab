@@ -1,0 +1,6 @@
+package com.neosdong;
+
+
+
+public class SellTicketThread extends Thread{
+}

@@ -1,0 +1,72 @@
+package com.imooc.concurrent.base;
+
+/**
+ */
+public class Stage extends Thread {
+
+	public void run(){
+		
+		System.out.println("拉开序幕...");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		System.out.println("战斗开始...");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		
+		System.out.println("双方军队交战");
+		ArmyRunnable armyTaskOfSuiDynasty = new ArmyRunnable();
+		ArmyRunnable armyTaskOfRevolt = new ArmyRunnable();
+		
+		Thread  armyOfSuiDynasty = new Thread(armyTaskOfSuiDynasty,"隋军进攻");
+		Thread  armyOfRevolt = new Thread(armyTaskOfRevolt,"农民起义军进攻");
+		
+		armyOfSuiDynasty.start();
+		armyOfRevolt.start();
+		
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("程咬金准备登场");
+		Thread  mrCheng = new KeyPersonThread();
+		mrCheng.setName("Mr.Cheng");
+		
+		System.out.println("战士停战...");
+		armyTaskOfSuiDynasty.keepRunning = false;
+		armyTaskOfRevolt.keepRunning = false;
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		/*
+		 */
+		mrCheng.start();
+		
+		try {
+			mrCheng.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+		System.out.println("程咬金战毕...");
+		System.out.println("表演结束!多谢围观!");
+	}
+	
+	public static void main(String[] args) {
+		new Stage().start();
+
+	}
+
+}
