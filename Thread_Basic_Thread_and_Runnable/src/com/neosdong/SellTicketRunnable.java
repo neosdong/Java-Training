@@ -1,8 +1,10 @@
 package com.neosdong;
 
+import javax.media.j3d.Leaf;
+
 public class SellTicketRunnable implements Runnable{
 
-    private int ticketCount = 5;
+    private int ticketCount = 100;
     public Object lockObj = new Object();
     
     	
@@ -14,8 +16,9 @@ public class SellTicketRunnable implements Runnable{
 					break;
 				}
         		ticketCount--;
+        		String left = ticketCount>1?(ticketCount+"s"):ticketCount+"";
         		System.out.println(Thread.currentThread().getName()
-					+" sell one tciket left "+ ticketCount );
+					+" sell one tciket left "+ left );
 			}
         	Thread.yield();//释放CPU线程资源
 		}

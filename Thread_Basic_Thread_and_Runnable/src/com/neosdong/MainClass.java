@@ -23,15 +23,19 @@ public class MainClass {
 		
 		
 		
+		/*
 		Runnable sellTickRunnable = new SellTicketRunnable();
 		new Thread(sellTickRunnable).start();
 		new Thread(sellTickRunnable).start();
 		new Thread(sellTickRunnable).start();
-		
+		*/
 		
 		System.out.println("-----Java Executors-----");
 		Runnable sellTickRunnable2 = new SellTicketRunnable();
-		ExecutorService executorService = Executors.newCachedThreadPool();
+		ExecutorService executorService = Executors.newCachedThreadPool();//实测5条线程
+		//ExecutorService executorService = Executors.newSingleThreadExecutor();
+		//ExecutorService executorService = Executors.newFixedThreadPool(5);
+		
 		for (int i = 0; i < 5; i++) {
 			executorService.execute(sellTickRunnable2);
 		}
