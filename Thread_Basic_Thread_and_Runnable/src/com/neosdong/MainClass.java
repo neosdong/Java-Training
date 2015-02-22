@@ -1,8 +1,12 @@
 package com.neosdong;
 
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import com.sun.corba.se.impl.orbutil.closure.Future;
 
 public class MainClass {
 
@@ -30,16 +34,39 @@ public class MainClass {
 		new Thread(sellTickRunnable).start();
 		*/
 		
-		System.out.println("-----Java Executors-----");
+		/*-----Java Executors-----*/
+		/*
 		Runnable sellTickRunnable2 = new SellTicketRunnable();
-		ExecutorService executorService = Executors.newCachedThreadPool();//实测5条线程
+		//ExecutorService executorService = Executors.newCachedThreadPool();//实测5条线程
 		//ExecutorService executorService = Executors.newSingleThreadExecutor();
-		//ExecutorService executorService = Executors.newFixedThreadPool(5);
+		ExecutorService executorService = Executors.newFixedThreadPool(5);
 		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 10; i++) {
 			executorService.execute(sellTickRunnable2);
 		}
 		executorService.shutdown();
+		*/
+		
+		//------Task with Result
+		ArrayList<java.util.concurrent.Future<String>> results = new ArrayList<>();
+		
+		ExecutorService executorService3 = Executors.newCachedThreadPool();
+		for (int i = 0; i < 5; i++) {
+			TaskWithResult task = new TaskWithResult(i);
+			results.add(executorService3.submit(task));
+		}
+		
+		for (java.util.concurrent.Future<String> fs:results) {
+			try {
+				System.out.println(fs.get());
+			} catch (InterruptedException | ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		executorService3.shutdown();
+		
+		
 	}
 
 }
