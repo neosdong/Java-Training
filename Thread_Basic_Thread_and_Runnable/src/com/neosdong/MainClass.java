@@ -45,7 +45,6 @@ public class MainClass {
 			executorService.execute(sellTickRunnable2);
 		}
 		executorService.shutdown();
-		*/
 		
 		//------Task with Result
 		ArrayList<java.util.concurrent.Future<String>> results = new ArrayList<>();
@@ -56,6 +55,7 @@ public class MainClass {
 			results.add(executorService3.submit(task));
 		}
 		
+		
 		for (java.util.concurrent.Future<String> fs:results) {
 			try {
 				System.out.println(fs.get());
@@ -65,8 +65,15 @@ public class MainClass {
 			}
 		}
 		executorService3.shutdown();
+		*/
 		
 		
+		ExecutorService execPriority = Executors.newCachedThreadPool();
+		for (int i = 0; i < 4; i++) {
+			execPriority.execute(new SimplePriority(Thread.MIN_PRIORITY));
+		}
+		execPriority.execute(new SimplePriority(Thread.MAX_PRIORITY));
+		execPriority.shutdown();
 	}
 
 }

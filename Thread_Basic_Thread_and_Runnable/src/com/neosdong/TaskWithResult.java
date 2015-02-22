@@ -1,11 +1,13 @@
 package com.neosdong;
 
+import java.util.Random;
 import java.util.concurrent.Callable;
 
 
 public class TaskWithResult implements Callable<String>{
 
 	private int id;
+	private double time;
 	
 	public TaskWithResult(int id){
 		this.id = id;
@@ -13,7 +15,9 @@ public class TaskWithResult implements Callable<String>{
 
 	@Override
 	public String call() throws Exception {
-		return "Result from task "+id;
+		time = (double) Math.random()*10;
+		System.out.println(this+" ");
+		return "Result from task "+id+" "+time;
 	}
 
 	/*
