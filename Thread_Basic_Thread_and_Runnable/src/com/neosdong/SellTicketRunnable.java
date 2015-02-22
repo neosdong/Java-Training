@@ -1,20 +1,25 @@
 package com.neosdong;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
-
 public class SellTicketRunnable implements Runnable{
 
-    private int ticketCount = 4;
+    private int ticketCount = 5;
+    public Object lockObj = new Object();
+    
     	
 	@Override
 	public void run() {
-        while(ticketCount>0){
-        	ticketCount--;
-        	System.out.println(Thread.currentThread().getName()
+        while(true){
+        	synchronized (lockObj) {//代码片锁
+        		if (ticketCount<=0) {//线程中止条件
+					break;
+				}
+        		ticketCount--;
+        		System.out.println(Thread.currentThread().getName()
 					+" sell one tciket left "+ ticketCount );
+			}
+        	Thread.yield();//释放CPU线程资源
 		}
-        	
+        
 	}
 
 }

@@ -14,8 +14,7 @@ public class MainClass {
 		/*
 		sellTicketThread.start();
 		sellTicketThread2.start();
-		sellTicketThread3.start();
-		*/
+		sellTicketThread3.start();*/
 		
 		Runnable sellTickRunnable = new SellTicketRunnable();
 		new Thread(sellTickRunnable).start();
