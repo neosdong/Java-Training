@@ -1,0 +1,15 @@
+package com.neosdong;
+
+import sun.rmi.runtime.Log;
+
+public class SimpleDaemons implements Runnable{
+
+	@Override
+	public void run() {
+		while (en.hasMoreElements()) {
+			type type = (type) en.nextElement();
+			
+		}
+	}
+
+}

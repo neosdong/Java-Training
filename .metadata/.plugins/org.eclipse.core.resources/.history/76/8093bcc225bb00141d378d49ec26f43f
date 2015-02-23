@@ -1,0 +1,5 @@
+package com.neosdong.daemon;
+
+public class ThreadFactory {
+
+}

@@ -1,0 +1,9 @@
+package com.neosdong;
+
+public class SimplePriority implements Runnable{
+
+	@Override
+	public void run() {
+	}
+
+}

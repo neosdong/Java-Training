@@ -1,0 +1,11 @@
+package com.neosdong;
+
+public class SimplePriority implements Runnable{
+
+	private int countDown = 5;
+	
+	@Override
+	public void run() {
+	}
+
+}

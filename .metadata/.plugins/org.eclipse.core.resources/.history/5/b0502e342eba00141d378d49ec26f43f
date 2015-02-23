@@ -1,0 +1,23 @@
+package com.neosdong;
+
+
+
+public class SellTicketRunnable implements Runnable{
+
+    private int ticketCount = 4;
+    
+    public int getTicketCount() {
+		return ticketCount;
+	}
+    	
+	@Override
+	public void run() {
+		ticketCount = getTicketCount();
+        while(ticketCount>0){
+        	ticketCount--;
+        	System.out.println(Thread.currentThread().getName()
+					+" sell one tciket left "+ ticketCount );
+		}
+	}
+
+}

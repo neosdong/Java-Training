@@ -1,0 +1,24 @@
+package com.neosdong;
+
+import java.util.concurrent.Callable;
+
+
+public class TaskWithResult implements Runnable,Callable<String>{
+
+	private int id;
+	
+	public TaskWithResult(int id){
+		this.id = id;
+	}
+
+	@Override
+	public String call() throws Exception {
+		return "Result from task "+id;
+	}
+
+	@Override
+	public void run() {
+		System.out.println();
+	}
+
+}

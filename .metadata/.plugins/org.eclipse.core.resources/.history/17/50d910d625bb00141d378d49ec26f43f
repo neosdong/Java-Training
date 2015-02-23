@@ -1,0 +1,11 @@
+package com.neosdong.daemon;
+
+public class DaemonThreadFactory implements ThreadFactory{
+
+	@Override
+	public Thread newThread(Runnable runnable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

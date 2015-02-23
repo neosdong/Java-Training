@@ -1,0 +1,39 @@
+package com.neosdong;
+
+
+public class SimplePriority implements Runnable{
+
+	private int countDown = 5;
+	private double r = 0;
+	private Object lockObj = new Object();
+	
+	public SimplePriority(int priority){
+		Thread.currentThread().setPriority(priority);
+	}
+	
+	@Override
+	public String toString() {
+		return Thread.currentThread() + ":" + countDown;
+	}
+	
+	@Override
+	public void run() {
+		synchronized (lockObj) {
+			
+		}
+		while(true){
+			for (int i = 0; i < 100000; i++) {
+				if (--countDown<0) {
+					return;
+				}
+				System.out.println(this);
+				
+				r += (Math.PI+Math.E)/(double)i;
+				if (r%1000==0) {
+					Thread.yield();
+				}
+			}
+		}
+	}
+
+}

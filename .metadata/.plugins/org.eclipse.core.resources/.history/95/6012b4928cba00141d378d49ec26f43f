@@ -1,0 +1,24 @@
+package com.neosdong;
+
+public class SimplePriority implements Runnable{
+
+	private int countDown = 5;
+	private double r = 0;
+	
+	@Override
+	public void run() {
+		while(true){
+			for (int i = 0; i < 100000; i++) {
+				if (--countDown<0) {
+					return;
+				}
+				
+				r += (Math.PI+Math.E)/(double)i;
+				if (r%1000==0) {
+					Thread.yield();
+				}
+			}
+		}
+	}
+
+}
