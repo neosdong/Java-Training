@@ -67,13 +67,24 @@ public class MainClass {
 		executorService3.shutdown();
 		*/
 		
-		
+		/*
 		ExecutorService execPriority = Executors.newCachedThreadPool();
 		for (int i = 0; i < 4; i++) {
 			execPriority.execute(new SimplePriority(Thread.MIN_PRIORITY));
 		}
 		execPriority.execute(new SimplePriority(Thread.MAX_PRIORITY));
 		execPriority.shutdown();
+		*/
+		
+		Thread t01 = new SimplePriorityThread();
+		Thread t02 = new SimplePriorityThread();
+		Thread t03 = new SimplePriorityThread();
+		t01.setPriority(Thread.MIN_PRIORITY);
+		t02.setPriority(Thread.NORM_PRIORITY);
+		t03.setPriority(Thread.MAX_PRIORITY);
+		t01.start();
+		t02.start();
+		t03.start();
 	}
 
 }
